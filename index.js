@@ -1,11 +1,16 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const app = express();
+const dotenv = require("dotenv")
 const TaskSchema = require("./model.js")
 const cors = require("cors")
-mongoose.connect("mongodb+srv://gollapallisamson077:V6QRi8wa7p5Kh3OU@connecttomern.7k9rp.mongodb.net/?retryWrites=true&w=majority&appName=Connecttomern").then(
+dotenv.config()
+mongoose.connect(process.env.MD_CONNECT).then(
     ()=>console.log("DB Connected")
 )
+.catch((err)=>{
+    console.log("Mongo DB IS NOT CONNECTED")
+})
 port = 5000;
 
 app.use(express.json())
