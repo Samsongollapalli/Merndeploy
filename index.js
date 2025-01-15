@@ -11,7 +11,7 @@ mongoose.connect(process.env.MD_CONNECT).then(
 .catch((err)=>{
     console.log("Mongo DB IS NOT CONNECTED")
 })
-port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json())
 
